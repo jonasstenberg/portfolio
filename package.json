@@ -1,0 +1,20 @@
+{
+  "name": "stenberg-portoflio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portfolio website for Jonas Stenberg",
+  "packageManager": "pnpm@8.6.2",
+  "scripts": {
+    "dev": "turbo dev",
+    "lint": "turbo lint --color --cache-dir=.turbo",
+    "format": "turbo format",
+    "typecheck": "turbo typecheck --color --cache-dir=.turbo",
+    "clean": "turbo clean",
+    "test": "turbo test --color --cache-dir=.turbo -- --run",
+    "test:watch": "turbo test --color --cache-dir=.turbo -- --watch"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "turbo": "^1.8.3"
+  }
+}

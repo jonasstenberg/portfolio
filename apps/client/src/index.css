@@ -1,0 +1,281 @@
+:root {
+  background-color: #fff;
+  text-rendering: optimizelegibility;
+  line-height: 1.5;
+  color: #555;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-size-adjust: 100%;
+}
+
+a {
+  text-decoration: inherit;
+  color: #555;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #747bff;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  background: #fff url('./assets/white-noise.png') repeat;
+}
+
+body.preload * {
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+  animation-duration: 0s !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  transition: border-color 0.25s;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+#root {
+  width: 100%;
+  text-align: center;
+}
+
+.sentinal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 6.75rem;
+}
+
+header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  background-color: #3498db;
+  padding: 0 1rem;
+  height: calc(100vh - 26px);
+  color: #fff;
+  font-style: italic;
+}
+
+header h1 {
+  line-height: 1.1;
+  font-size: 2.625rem;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+@media (width <= 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+.front {
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+.front-hello {
+  margin-bottom: 1rem;
+}
+
+.front-desc span {
+  background-color: #555;
+}
+
+.front-portrait {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  aspect-ratio: auto 433 / 420;
+}
+
+.zigzag-container {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: #3498db;
+  width: 100%;
+  height: 3rem;
+}
+
+.zigzag-og {
+  position: relative;
+  z-index: 200;
+  mask-size: 28px 100%;
+  background-color: #3498db;
+  mask-image: url('/src/assets/zigzag.svg');
+  mask-repeat: repeat-x;
+  width: 100%;
+  height: 0.875rem;
+}
+
+.zigzag {
+  position: absolute;
+  bottom: -14px;
+  z-index: 200;
+  mask-size: 28px 100%;
+  background-color: #3498db;
+  mask-image: url('/src/assets/zigzag.svg');
+  mask-repeat: repeat-x;
+  width: 100%;
+  height: 0.875rem;
+}
+
+.footer-hidden {
+  bottom: -2.125rem;
+  transition: bottom 0.5s ease-in-out, opacity 0.5s 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.zigzag-inverse {
+  position: relative;
+  bottom: 1.4375rem;
+  background-color: #3498db;
+  width: 100%;
+  height: 0.9375rem;
+  mask: url('./assets/zigzag-inverse.svg') -14px 0 repeat-x;
+  mask-size: 28px 100%;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+  max-width: 37.5rem;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main h2 {
+  margin-top: 1.5rem;
+  color: #3498db;
+  font-size: 2.5rem;
+  font-style: italic;
+}
+
+main h3 {
+  margin-top: 0;
+  border-bottom: 1px dashed #bbb;
+  padding-bottom: 2rem;
+  color: #777;
+  font-size: 1.875rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.life {
+  margin-top: 2rem;
+}
+
+.life li {
+  margin-bottom: 2.5rem;
+}
+
+.life-row:last-child {
+  margin-bottom: 0;
+}
+
+.life-row span {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.life-year,
+.life-location {
+  color: #777;
+  font-size: 0.75rem;
+}
+
+.life-info {
+  padding: 0.25rem 0;
+  color: #555;
+}
+
+.myself {
+  margin-top: 2rem;
+  border-top: 1px dashed #bbb;
+  border-bottom: 1px dashed #bbb;
+  padding: 2rem 0;
+  text-align: left;
+  color: #777;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  width: 10rem;
+}
+
+.contact li {
+  width: 2rem;
+}
+
+.contact li svg {
+  fill: #3498db;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  transition: bottom 0.5s ease-in-out, opacity 0.3s 0s ease-in-out;
+  background-color: #3498db;
+  padding-top: 0.625rem;
+  width: 100%;
+  height: 0.625rem;
+}
