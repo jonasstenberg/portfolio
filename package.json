@@ -11,9 +11,11 @@
     "typecheck": "turbo typecheck --color --cache-dir=.turbo",
     "clean": "turbo clean",
     "test": "turbo test --color --cache-dir=.turbo -- --run",
-    "test:watch": "turbo test --color --cache-dir=.turbo -- --watch"
+    "test:watch": "turbo test --color --cache-dir=.turbo -- --watch",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "turbo": "^1.8.3"
   }
