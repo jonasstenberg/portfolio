@@ -15,7 +15,7 @@ export const App = () => {
   const mainWidthBelowThreshold = main && main.offsetWidth < 600;
 
   const header = document.querySelector('header');
-  const marginTop = header && header?.offsetHeight - 95;
+  const marginTop = header && header?.offsetHeight - 92;
 
   const introStyles = (
     isOnScreen
