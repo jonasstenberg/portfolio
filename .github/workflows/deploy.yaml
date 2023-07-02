@@ -1,0 +1,51 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install-and-lint:
+    name: Install and run linter
+    uses: ./.github/workflows/install-and-lint.yaml
+
+  build-and-deploy:
+    needs: install-and-lint
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+
+      - name: Turborepo cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          path: .turbo
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build client
+        working-directory: apps/client
+        run: pnpm build
+
+      - name: Deploy
+        working-directory: apps/client
+        env:
+          DOMAIN: stenberg.io
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.APP_SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $DOMAIN >> ~/.ssh/known_hosts
+          rsync --delete -azr ./dist/ root@$DOMAIN:/usr/local/bin/$DOMAIN
+          ssh -o StrictHostKeyChecking=no root@$DOMAIN 'sudo systemctl restart caddy'

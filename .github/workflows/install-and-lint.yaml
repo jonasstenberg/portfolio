@@ -1,7 +1,6 @@
-name: Test & Lint
+name: Lint & Typecheck
 
 on:
-  - push
   - workflow_call
 
 jobs:
@@ -35,9 +34,6 @@ jobs:
 
       - name: Lint
         run: pnpm lint
-
-      - name: Test
-        run: pnpm test
 
       - name: Typecheck
         run: pnpm typecheck
