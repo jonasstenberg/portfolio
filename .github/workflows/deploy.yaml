@@ -4,17 +4,20 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+env:
+  DOMAIN: stenberg.io
 
 jobs:
   install-and-lint:
     name: Install and run linter
     uses: ./.github/workflows/install-and-lint.yaml
 
-  build-and-deploy:
+  deploy:
     needs: install-and-lint
     name: Build and deploy
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -32,20 +35,28 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Install dependencies
+        working-directory: apps/client
         run: pnpm install
 
       - name: Build client
         working-directory: apps/client
         run: pnpm build
 
-      - name: Deploy
-        working-directory: apps/client
-        env:
-          DOMAIN: stenberg.io
+      - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.APP_SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H $DOMAIN >> ~/.ssh/known_hosts
-          rsync --delete -azr ./dist/ root@$DOMAIN:/usr/local/bin/$DOMAIN
-          ssh -o StrictHostKeyChecking=no root@$DOMAIN 'sudo systemctl restart caddy'
+
+      - name: Add SSH Key to known_hosts
+        run: |
+          ssh-keyscan -H ${{ env.DOMAIN }} >> ~/.ssh/known_hosts
+
+      - name: Rsync to Server
+        working-directory: apps/client
+        run: |
+          rsync --delete -azr ./dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/${{ env.DOMAIN }}
+
+      - name: Restart Nginx
+        run: |
+          ssh -o StrictHostKeyChecking=no jonas@${{ env.DOMAIN }} 'sudo systemctl restart nginx'
