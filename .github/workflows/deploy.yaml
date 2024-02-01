@@ -52,7 +52,7 @@ jobs:
         run: |
           ssh-keyscan -H ${{ env.DOMAIN }} >> ~/.ssh/known_hosts
 
-      - name: Rsync to Server
+      - name: Rsync to server
         working-directory: apps/client
         run: |
           rsync --delete -azr ./dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/${{ env.DOMAIN }}
