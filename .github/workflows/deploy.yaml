@@ -20,26 +20,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
         id: pnpm-install
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
 
-      - name: Turborepo cache
-        uses: actions/cache@v3
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
         with:
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          path: .turbo
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-turbo-
+            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
-        working-directory: apps/client
         run: pnpm install
 
       - name: Build client
-        working-directory: apps/client
         run: pnpm build
 
       - name: Setup SSH Key
@@ -53,9 +51,8 @@ jobs:
           ssh-keyscan -H ${{ env.DOMAIN }} >> ~/.ssh/known_hosts
 
       - name: Rsync to server
-        working-directory: apps/client
         run: |
-          rsync --delete -azr ./dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/${{ env.DOMAIN }}
+          rsync --delete -azr ./dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/portfolio
 
       - name: Restart Nginx
         run: |

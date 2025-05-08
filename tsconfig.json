@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "React",
-  "extends": "./base.json",
+  "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "useDefineForClassFields": true,
     "lib": [
