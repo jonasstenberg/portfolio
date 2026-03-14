@@ -76,7 +76,7 @@ export const App = () => {
           <h1 className='front-hello'>Hello! I'm Jonas Stenberg.</h1>
           <h2 className='front-desc'>
             I love <span>solving</span> problems with software, mentoring, and leading teams. In my
-            free time I tinker with homelab <span>stuff</span> and improve my Vim config.
+            free time I tinker with homelab <span>stuff</span> and improve my Neovim config.
           </h2>
         </div>
       </header>
