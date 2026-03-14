@@ -186,7 +186,7 @@ export const App = () => {
               Hey there! I'm Jonas Stenberg, a passionate developer and tech enthusiast from Malmö,
               Sweden. My journey into coding started when I was 10, where I wrote .BAT scripts on
               the schools computer to do silly stuff. It later transitioned into an interest of
-              doing websites in ASP (the classic version, not .NET) which led later led me to PHP
+              doing websites in ASP (the classic version, not .NET) which later led me to PHP and
               eventually Javascript. Whether it's tinkering with a new programming language or
               diving deep into architecture and design, I love solving problems and building things.
               <br />
