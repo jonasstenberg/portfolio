@@ -123,7 +123,7 @@ export const App = () => {
                 <p>
                   Built a from-the-ground technical team for a SaaS application which helps
                   extensive supply chain analysis in the production of physical goods. Managed the
-                  teams technology roadmap, goals and individual development.
+                  team's technology roadmap, goals and individual development.
                 </p>
               </li>
               <li>
