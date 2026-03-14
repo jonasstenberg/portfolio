@@ -186,8 +186,8 @@ export const App = () => {
               Hey there! I'm Jonas Stenberg, a passionate developer and tech enthusiast from Malmö,
               Sweden. My journey into coding started when I was 10, where I wrote .BAT scripts on
               the school's computer to do silly stuff. It later transitioned into an interest in
-              building websites in ASP (the classic version, not .NET) which later led me to PHP
-              and eventually Javascript. Whether it's tinkering with a new programming language or
+              building websites in ASP (the classic version, not .NET) which later led me to PHP and
+              eventually Javascript. Whether it's tinkering with a new programming language or
               diving deep into architecture and design, I love solving problems and building things.
               <br />
               <br />
@@ -195,15 +195,15 @@ export const App = () => {
               leading teams of developers to co-founding a company with friends and creating
               interactive installations for the World Expo in Shanghai. I've held roles like
               Consultant Manager, Architect, and Lead Developer, and I've been fortunate enough to
-              meet some incredibly talented people on the way, some of whom I've had the pleasure
-              to mentor and guide.
+              meet some incredibly talented people on the way, some of whom I've had the pleasure to
+              mentor and guide.
               <br />
               <br />
               On the professional side, I'm all about software architecture, frontend or backend
               development, and leading teams to build scalable solutions. Whether it's JavaScript
               frameworks like React, Golang, or cloud infrastructure on AWS and GCP — I enjoy the
-              variety. I also have a soft spot for my homelab setup and tweaking my Neovim config
-              in my free time.
+              variety. I also have a soft spot for my homelab setup and tweaking my Neovim config in
+              my free time.
               <br />
               <br />
               Simply put, I love doing techy stuff and building things.
@@ -285,12 +285,22 @@ export const App = () => {
                 </a>
               </li>
               <li>
-                <a href='https://github.com/jonasstenberg' aria-label='Github'>
+                <a
+                  href='https://github.com/jonasstenberg'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Github'
+                >
                   <Github />
                 </a>
               </li>
               <li>
-                <a href='https://www.linkedin.com/in/jonasstenberg/' aria-label='LinkedIn'>
+                <a
+                  href='https://www.linkedin.com/in/jonasstenberg/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='LinkedIn'
+                >
                   <LinkedIn />
                 </a>
               </li>
