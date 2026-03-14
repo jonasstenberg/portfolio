@@ -74,7 +74,8 @@ export const App = () => {
         ref={mainContentRef}
       >
         <div className='main-wrapper' style={introStyles} key='z'>
-          <h2>Introduction</h2>
+          <section aria-labelledby='intro-heading'>
+          <h2 id='intro-heading'>Introduction</h2>
           <h3>Work and education</h3>
           <ul className='experiences'>
             <li>
@@ -163,7 +164,9 @@ export const App = () => {
               <p>Kalmar, Sweden</p>
             </li>
           </ul>
-          <h2>About</h2>
+          </section>
+          <section aria-labelledby='about-heading'>
+          <h2 id='about-heading'>About</h2>
           <h3>Me</h3>
           <p className='myself'>
             Hey there! I'm Jonas Stenberg, a passionate developer and tech enthusiast from Malmö,
@@ -190,7 +193,9 @@ export const App = () => {
             <br />
             Simply put, I love doing techy stuff and building things.
           </p>
-          <h2>Skills</h2>
+          </section>
+          <section aria-labelledby='skills-heading'>
+          <h2 id='skills-heading'>Skills</h2>
           <h3>I've learned</h3>
           <div className='skills'>
             <div>
@@ -254,7 +259,9 @@ export const App = () => {
               </ul>
             </div>
           </div>
-          <h2>Contact</h2>
+          </section>
+          <section aria-labelledby='contact-heading'>
+          <h2 id='contact-heading'>Contact</h2>
           <h3>Say Hello!</h3>
           <ul className='contact'>
             <li>
@@ -273,6 +280,7 @@ export const App = () => {
               </a>
             </li>
           </ul>
+          </section>
         </div>
       </main>
       <footer className={isOnScreen ? '' : 'footer-hidden'}>
