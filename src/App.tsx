@@ -1,4 +1,4 @@
-import { CSSProperties, useRef, RefObject } from 'react';
+import { CSSProperties, useRef, useState, useEffect, useCallback, RefObject } from 'react';
 
 import { ReactComponent as ArrowDown } from './assets/arrow-down.svg';
 import { ReactComponent as Email } from './assets/email.svg';
@@ -12,28 +12,44 @@ export const App = () => {
   const entry = useIntersectionObserver(elementRef as RefObject<Element>, {});
   const isOnScreen = !!entry?.isIntersecting;
 
-  const main = document.querySelector('main');
-  const mainWidthBelowThreshold = main && main.offsetWidth < 600;
-
-  const header = document.querySelector('header');
-  const marginTop = header && header?.offsetHeight - 240;
-
-  const introStyles = (
-    isOnScreen
-      ? {
-          position: 'fixed',
-          top: '0',
-          width: mainWidthBelowThreshold ? main.offsetWidth : '37.5rem',
-          marginTop: `${marginTop}px`,
-          marginLeft: mainWidthBelowThreshold ? -(main.offsetWidth / 2) : '-18.75rem',
-          left: '50%',
-        }
-      : {
-          position: 'relative',
-        }
-  ) as CSSProperties;
-
   const mainContentRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const [introStyles, setIntroStyles] = useState<CSSProperties>({ position: 'relative' });
+  const [mainHeight, setMainHeight] = useState<number | undefined>(undefined);
+
+  const updateStyles = useCallback(() => {
+    const mainEl = mainContentRef.current;
+    const headerEl = headerRef.current;
+    if (!mainEl || !headerEl) return;
+
+    const mainWidthBelowThreshold = mainEl.offsetWidth < 600;
+    const marginTop = headerEl.offsetHeight - 240;
+
+    if (isOnScreen) {
+      setIntroStyles({
+        position: 'fixed',
+        top: '0',
+        width: mainWidthBelowThreshold ? mainEl.offsetWidth : '37.5rem',
+        marginTop: `${marginTop}px`,
+        marginLeft: mainWidthBelowThreshold ? -(mainEl.offsetWidth / 2) : '-18.75rem',
+        left: '50%',
+      });
+    } else {
+      setIntroStyles({ position: 'relative' });
+    }
+
+    if (wrapperRef.current) {
+      setMainHeight(wrapperRef.current.offsetHeight);
+    }
+  }, [isOnScreen]);
+
+  useEffect(() => {
+    updateStyles();
+    window.addEventListener('resize', updateStyles);
+    return () => window.removeEventListener('resize', updateStyles);
+  }, [updateStyles]);
 
   const handleScroll = () => {
     if (mainContentRef.current) {
@@ -55,7 +71,7 @@ export const App = () => {
       >
         <ArrowDown />
       </button>
-      <header>
+      <header ref={headerRef}>
         <div className='front'>
           <h1 className='front-hello'>Hello! I'm Jonas Stenberg.</h1>
           <h2 className='front-desc'>
@@ -70,10 +86,10 @@ export const App = () => {
       </div>
       <div className='zigzag-og'></div>
       <main
-        style={{ height: document.querySelector<HTMLElement>('div.main-wrapper')?.offsetHeight }}
+        style={{ height: mainHeight }}
         ref={mainContentRef}
       >
-        <div className='main-wrapper' style={introStyles} key='z'>
+        <div className='main-wrapper' style={introStyles} key='z' ref={wrapperRef}>
           <section aria-labelledby='intro-heading'>
           <h2 id='intro-heading'>Introduction</h2>
           <h3>Work and education</h3>
