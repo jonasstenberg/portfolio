@@ -96,12 +96,20 @@ export const App = () => {
                 <p>Developer @ Squidler</p>
                 <p>Malmö, Sweden</p>
                 <p>
-                  At Squidler, I help build tools that automatically test websites for bugs,
-                  accessibility issues, and language mistakes. We simulate real user behavior to
-                  find problems that might otherwise slip through the cracks. We are making quality
-                  assurance smarter and more approachable. I work on everything from the AI-based
-                  testing logic to making sure we support WCAG accessibility standards out of the
-                  box.
+                  Squidler is an AI agent platform built around named specialists that people "hire"
+                  and keep as ongoing contacts across Slack, Telegram, email and the web: a QA
+                  tester, a project manager, a personal assistant. Each one is an LLM loop in
+                  TypeScript on Bun, with tools for browsing, running code, files and search. I
+                  designed and built their long-term memory on Postgres and pgvector: semantic,
+                  episodic and procedural recall, decay-aware retrieval, and a nightly consolidation
+                  pass that abstracts recurring events into durable facts. Much of the rest of my
+                  work is keeping the agents predictable: prompt engineering, output validation that
+                  rejects or repairs malformed responses, regression checks that catch when a prompt
+                  or model change degrades behavior, and permission gates around anything an agent
+                  can run. Beyond the agent core I work on the frontend (Next.js, React), an MCP
+                  server that exposes our browser automation to AI coding tools, and the
+                  infrastructure: GCP managed with Terraform (Cloud KMS for encryption at rest, the
+                  CI pipeline) plus a self-hosted VPS.
                 </p>
               </li>
               <li>
