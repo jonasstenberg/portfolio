@@ -65,4 +65,5 @@ jobs:
           rsync -az ./apps/qa/results/health.json jonas@${{ env.DOMAIN }}:/usr/local/bin/portfolio/health.json
 
       - name: Fail the run if checks failed
-        run: node -e "const h = require('./apps/qa/results/health.json'); process.exit(h.summary.failed ? 1 : 0)"
+        run: |
+          node -e "const h = require('./apps/qa/results/health.json'); process.exit(h.summary.failed ? 1 : 0)"
