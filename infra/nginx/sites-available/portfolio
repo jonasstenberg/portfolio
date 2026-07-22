@@ -67,19 +67,7 @@ server {
   include includes/ssl;
   include includes/headers;
 
-  gzip on;
-  gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
-
-  keepalive_timeout   70;
-
-  root /usr/local/bin/portfolio;
-  index index.html;
-
-  error_page 404 /404.html;
-
-  location / {
-    try_files $uri $uri/ =404;
-  }
+  return 301 https://stenberg.io$request_uri;
 }
 
 server {
@@ -94,17 +82,5 @@ server {
   include includes/ssl;
   include includes/headers;
 
-  gzip on;
-  gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
-
-  keepalive_timeout   70;
-
-  root /usr/local/bin/portfolio;
-  index index.html;
-
-  error_page 404 /404.html;
-
-  location / {
-    try_files $uri $uri/ =404;
-  }
+  return 301 https://stenberg.io$request_uri;
 }
