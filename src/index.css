@@ -397,6 +397,83 @@ main {
   margin-bottom: 2.5rem;
 }
 
+.vim {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+}
+
+.vim-status {
+  padding: 0.375rem 0.75rem;
+  color: #e8e8e8;
+  background-color: rgba(28, 36, 43, 0.88);
+  border-radius: 0.375rem;
+  letter-spacing: 0.03em;
+  white-space: pre;
+}
+
+.vim-help {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  color: #e8e8e8;
+  background-color: rgba(28, 36, 43, 0.94);
+  border-radius: 0.375rem;
+}
+
+.vim-help div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.125rem 0;
+}
+
+.vim-help dt {
+  color: #8fc7f2;
+}
+
+.vim-help dd {
+  margin: 0;
+}
+
+.vim-match {
+  outline: 2px dashed var(--primary-color);
+  outline-offset: 0.5rem;
+}
+
+.vim-match-current {
+  outline-style: solid;
+  outline-color: var(--accent-color);
+}
+
+.vim-visual {
+  background-color: rgba(37, 114, 165, 0.12);
+  outline: 2px solid var(--primary-color);
+  outline-offset: 0.5rem;
+}
+
+::highlight(vim-search) {
+  color: #1c242b;
+  background-color: #ffd54f;
+}
+
+::highlight(vim-search-current) {
+  color: #fff;
+  background-color: var(--accent-color);
+}
+
+@media (pointer: coarse), (max-width: 600px) {
+  .vim {
+    display: none;
+  }
+}
+
 .contact {
   display: flex;
   justify-content: space-between;

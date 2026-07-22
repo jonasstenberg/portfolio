@@ -6,6 +6,7 @@ import { ReactComponent as Github } from './assets/github.svg';
 import { ReactComponent as LinkedIn } from './assets/linkedin.svg';
 
 import { useIntersectionObserver } from './hooks/observer';
+import { VimMode } from './components/VimMode';
 
 export const App = () => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -326,6 +327,7 @@ export const App = () => {
       <footer className={isOnScreen ? '' : 'footer-hidden'}>
         <div className='zigzag-inverse'></div>
       </footer>
+      <VimMode />
     </>
   );
 };
