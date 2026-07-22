@@ -53,7 +53,13 @@ const scrollToRange = (range: Range) => {
   window.scrollTo({ top: Math.max(top, 0), behavior: smoothScroll() });
 };
 
-const experienceItems = () => Array.from(document.querySelectorAll<HTMLElement>('.experiences li'));
+// Visual-mode "lines": experience entries, the about text, and top-level
+// skill rows (nested skill lists select with their parent, so a range never
+// contains the same text twice).
+const visualItems = () =>
+  Array.from(
+    document.querySelectorAll<HTMLElement>('.experiences li, .myself, .skills > div > ul > li'),
+  );
 
 const searchTargets = () =>
   Array.from(document.querySelectorAll<HTMLElement>('.experiences li, .skills li, .myself'));
@@ -177,7 +183,7 @@ export const VimMode = () => {
   }, []);
 
   const enterVisual = useCallback(() => {
-    items.current = experienceItems();
+    items.current = visualItems();
     if (items.current.length === 0) return;
     const start = items.current.findIndex(
       (el) => el.getBoundingClientRect().bottom > window.innerHeight / 2,
