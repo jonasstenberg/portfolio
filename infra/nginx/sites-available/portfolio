@@ -1,0 +1,110 @@
+server {
+  listen 80;
+  listen [::]:80;
+
+  server_name stenberg.io *.stenberg.io;
+
+  include includes/headers;
+
+  if ($host = stenberg.io) {
+    return 301 https://$host$request_uri;
+  }
+}
+
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+
+  server_name stenberg.io www.stenberg.io;
+
+  ssl_certificate /home/jonas/.acme.sh/stenberg.io_ecc/fullchain.cer;
+  ssl_certificate_key /home/jonas/.acme.sh/stenberg.io_ecc/stenberg.io.key;
+
+  include includes/ssl;
+  include includes/headers;
+
+  gzip on;
+  gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
+
+  keepalive_timeout   70;
+
+  root /usr/local/bin/portfolio;
+  index index.html;
+
+  error_page 404 /404.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  # CV GraphQL API (see api/ in the repo). JSON only — the GraphiQL playground
+  # is a page of the Vite app, served statically at /graphiql/.
+  # add_header directives here replace the inherited ones from includes/headers,
+  # so the relevant ones are restated with an API-appropriate CSP.
+  location = /graphql {
+    proxy_pass http://127.0.0.1:4000/graphql;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    add_header Strict-Transport-Security "max-age=15768000; preload" always;
+    add_header X-Content-Type-Options nosniff;
+    add_header Content-Security-Policy "default-src 'none'; frame-ancestors 'none';";
+    add_header 'Referrer-Policy' 'strict-origin';
+  }
+}
+
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+
+  server_name jonasstenberg.se;
+
+  ssl_certificate /home/jonas/.acme.sh/jonasstenberg.se_ecc/fullchain.cer;
+  ssl_certificate_key /home/jonas/.acme.sh/jonasstenberg.se_ecc/jonasstenberg.se.key;
+
+  include includes/ssl;
+  include includes/headers;
+
+  gzip on;
+  gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
+
+  keepalive_timeout   70;
+
+  root /usr/local/bin/portfolio;
+  index index.html;
+
+  error_page 404 /404.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
+
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+
+  server_name jonasstenberg.com;
+
+  ssl_certificate /home/jonas/.acme.sh/jonasstenberg.com_ecc/fullchain.cer;
+  ssl_certificate_key /home/jonas/.acme.sh/jonasstenberg.com_ecc/jonasstenberg.com.key;
+
+  include includes/ssl;
+  include includes/headers;
+
+  gzip on;
+  gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;
+
+  keepalive_timeout   70;
+
+  root /usr/local/bin/portfolio;
+  index index.html;
+
+  error_page 404 /404.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}

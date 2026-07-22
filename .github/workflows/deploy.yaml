@@ -57,3 +57,40 @@ jobs:
       - name: Restart Nginx
         run: |
           ssh -o StrictHostKeyChecking=no jonas@${{ env.DOMAIN }} 'sudo systemctl restart nginx'
+
+  deploy-api:
+    needs: install-and-lint
+    name: Build and deploy CV API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        working-directory: api
+
+      - name: Build standalone binary
+        run: bun run build
+        working-directory: api
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.APP_SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Add SSH Key to known_hosts
+        run: |
+          ssh-keyscan -H ${{ env.DOMAIN }} >> ~/.ssh/known_hosts
+
+      - name: Rsync binary to server
+        run: |
+          rsync -az ./api/dist/cv-api jonas@${{ env.DOMAIN }}:/usr/local/bin/cv-api/cv-api
+
+      - name: Restart CV API
+        run: |
+          ssh -o StrictHostKeyChecking=no jonas@${{ env.DOMAIN }} 'sudo systemctl restart cv-api'
