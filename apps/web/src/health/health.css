@@ -1,0 +1,234 @@
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/lato-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/lato-bold-700.woff2') format('woff2');
+}
+
+:root {
+  --primary-color: #2572a5;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --muted-color: #767676;
+  --good-color: #2e7d32;
+  --warn-color: #b45309;
+  --poor-color: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Lato, Arial, sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+.health {
+  max-width: 37.5rem;
+  padding: 0 1.5rem 4rem;
+  margin: 0 auto;
+}
+
+.health a {
+  color: var(--primary-color);
+}
+
+.health a:hover {
+  color: var(--accent-color);
+}
+
+.health-back {
+  display: inline-block;
+  margin: 1.5rem 0 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.health h1 {
+  margin: 2.5rem 0 0.25rem;
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+.health-sub {
+  padding-bottom: 2rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #777;
+  border-bottom: 1px dashed #bbb;
+}
+
+.health-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.health-hero strong {
+  font-size: 1.75rem;
+}
+
+.health-hero .ok {
+  color: var(--good-color);
+}
+
+.health-hero .bad {
+  color: var(--poor-color);
+}
+
+.health-meta {
+  margin: 0 0 2.5rem;
+  font-size: 0.9375rem;
+  color: var(--muted-color);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tile {
+  text-align: center;
+}
+
+.tile svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.gauge-track {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 6;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.gauge-good {
+  stroke: var(--good-color);
+}
+
+.gauge-warn {
+  stroke: var(--warn-color);
+}
+
+.gauge-poor {
+  stroke: var(--poor-color);
+}
+
+.tile svg text {
+  font-family: Lato, Arial, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  fill: var(--text-color);
+}
+
+.tile-label {
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.tile-status {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.status-good {
+  color: var(--good-color);
+}
+
+.status-warn {
+  color: var(--warn-color);
+}
+
+.status-poor {
+  color: var(--poor-color);
+}
+
+.checks {
+  padding: 0;
+  margin: 0 0 2.5rem;
+  list-style: none;
+}
+
+.checks li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.375rem 0;
+  border-bottom: 1px dashed #e5e5e5;
+}
+
+.check-icon {
+  font-weight: 700;
+}
+
+.checks li.passed .check-icon {
+  color: var(--good-color);
+}
+
+.checks li.failed .check-icon {
+  color: var(--poor-color);
+}
+
+.checks li.failed .check-title {
+  font-weight: 700;
+}
+
+.check-duration {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--muted-color);
+  white-space: nowrap;
+}
+
+.health-footer {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted-color);
+}
+
+.health-empty {
+  padding: 2rem 0;
+  font-style: italic;
+  color: var(--muted-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

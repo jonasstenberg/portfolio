@@ -29,3 +29,8 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# QA artifacts
+apps/qa/results
+apps/qa/test-results
+apps/qa/playwright-report

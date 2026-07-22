@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-07-22T08:34:27.416Z",
+  "commit": null,
+  "runUrl": null,
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "title": "home page renders",
+      "status": "passed",
+      "durationMs": 325
+    },
+    {
+      "title": "security headers are in place",
+      "status": "passed",
+      "durationMs": 121
+    },
+    {
+      "title": "CV GraphQL API answers the canonical query",
+      "status": "passed",
+      "durationMs": 126
+    },
+    {
+      "title": "GraphQL schema supports filter arguments",
+      "status": "passed",
+      "durationMs": 125
+    },
+    {
+      "title": "GraphiQL playground is served",
+      "status": "passed",
+      "durationMs": 606
+    },
+    {
+      "title": "vim mode: ? opens the help panel",
+      "status": "passed",
+      "durationMs": 515
+    },
+    {
+      "title": "vim mode: /vue finds the skill",
+      "status": "passed",
+      "durationMs": 558
+    },
+    {
+      "title": "vim mode: :contact jumps to the contact section",
+      "status": "passed",
+      "durationMs": 1364
+    },
+    {
+      "title": "konami code grants 30 extra lives",
+      "status": "passed",
+      "durationMs": 337
+    },
+    {
+      "title": "missing pages get the vim-style 404",
+      "status": "passed",
+      "durationMs": 65
+    },
+    {
+      "title": "alternate domains redirect to stenberg.io",
+      "status": "passed",
+      "durationMs": 87
+    },
+    {
+      "title": "accessibility: no serious or critical axe violations",
+      "status": "passed",
+      "durationMs": 492
+    }
+  ],
+  "lighthouse": {
+    "performance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  }
+}

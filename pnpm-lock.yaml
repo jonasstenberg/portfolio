@@ -16,6 +16,9 @@ importers:
       '@playwright/test':
         specifier: ^1.61.1
         version: 1.61.1
+      '@types/node':
+        specifier: ^26.1.1
+        version: 26.1.1
       lighthouse:
         specifier: ^13.4.1
         version: 13.4.1(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))
@@ -24,13 +27,13 @@ importers:
     dependencies:
       '@graphiql/plugin-explorer':
         specifier: ^5.1.3
-        version: 5.1.3(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 5.1.3(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@graphiql/toolkit':
         specifier: ^0.12.1
-        version: 0.12.1(@types/node@22.15.16)(graphql@17.0.2)
+        version: 0.12.1(@types/node@26.1.1)(graphql@17.0.2)
       graphiql:
         specifier: ^5.2.4
-        version: 5.2.4(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+        version: 5.2.4(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
       monaco-editor:
         specifier: ^0.52.2
         version: 0.52.2
@@ -61,7 +64,7 @@ importers:
         version: typescript@7.0.2
       '@vitejs/plugin-react':
         specifier: ^6.0.4
-        version: 6.0.4(vite@8.1.5(@types/node@22.15.16))
+        version: 6.0.4(vite@8.1.5(@types/node@26.1.1))
       eslint:
         specifier: ^10.7.0
         version: 10.7.0
@@ -82,10 +85,10 @@ importers:
         version: 8.65.0(@typescript/typescript6@6.0.2)(eslint@10.7.0)
       vite:
         specifier: ^8.1.5
-        version: 8.1.5(@types/node@22.15.16)
+        version: 8.1.5(@types/node@26.1.1)
       vite-plugin-svgr:
         specifier: ^5.2.0
-        version: 5.2.0(@typescript/typescript6@6.0.2)(rollup@4.40.2)(vite@8.1.5(@types/node@22.15.16))
+        version: 5.2.0(@typescript/typescript6@6.0.2)(rollup@4.40.2)(vite@8.1.5(@types/node@26.1.1))
 
 packages:
 
@@ -1092,8 +1095,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@22.15.16':
-    resolution: {integrity: sha512-3pr+KjwpVujqWqOKT8mNR+rd09FqhBLwg+5L/4t0cNYBzm/yEiYGCxWttjaPBsLtAo+WFNoXzGJfolM1JuRXoA==}
+  '@types/node@26.1.1':
+    resolution: {integrity: sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -2272,8 +2275,8 @@ packages:
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@8.3.0:
+    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
   update-browserslist-db@1.2.3:
     resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
@@ -2694,9 +2697,9 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@graphiql/plugin-doc-explorer@0.4.2(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
+  '@graphiql/plugin-doc-explorer@0.4.2(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
     dependencies:
-      '@graphiql/react': 0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/react': 0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
       '@headlessui/react': 2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       graphql: 17.0.2
       react: 19.2.8
@@ -2708,18 +2711,18 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@graphiql/plugin-explorer@5.1.3(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@graphiql/plugin-explorer@5.1.3(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@graphiql/react': 0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/react': 0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
       graphiql-explorer: 0.9.0(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       graphql: 17.0.2
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@graphiql/plugin-history@0.4.2(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/node@22.15.16)(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
+  '@graphiql/plugin-history@0.4.2(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/node@26.1.1)(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
     dependencies:
-      '@graphiql/react': 0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
-      '@graphiql/toolkit': 0.12.1(@types/node@22.15.16)(graphql@17.0.2)
+      '@graphiql/react': 0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/toolkit': 0.12.1(@types/node@26.1.1)(graphql@17.0.2)
       react: 19.2.8
       react-compiler-runtime: 19.1.0-rc.1(react@19.2.8)
       react-dom: 19.2.8(react@19.2.8)
@@ -2732,9 +2735,9 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
+  '@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))':
     dependencies:
-      '@graphiql/toolkit': 0.12.1(@types/node@22.15.16)(graphql@17.0.2)
+      '@graphiql/toolkit': 0.12.1(@types/node@26.1.1)(graphql@17.0.2)
       '@radix-ui/react-dialog': 1.1.20(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-dropdown-menu': 2.1.21(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-tooltip': 1.2.13(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -2763,11 +2766,11 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@graphiql/toolkit@0.12.1(@types/node@22.15.16)(graphql@17.0.2)':
+  '@graphiql/toolkit@0.12.1(@types/node@26.1.1)(graphql@17.0.2)':
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.2.0
       graphql: 17.0.2
-      meros: 1.3.2(@types/node@22.15.16)
+      meros: 1.3.2(@types/node@26.1.1)
     transitivePeerDependencies:
       - '@types/node'
 
@@ -3481,9 +3484,9 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@22.15.16':
+  '@types/node@26.1.1':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 8.3.0
 
   '@types/react-dom@19.2.3(@types/react@19.2.17)':
     dependencies:
@@ -3648,10 +3651,10 @@ snapshots:
     dependencies:
       '@typescript/old': typescript@6.0.3
 
-  '@vitejs/plugin-react@6.0.4(vite@8.1.5(@types/node@22.15.16))':
+  '@vitejs/plugin-react@6.0.4(vite@8.1.5(@types/node@26.1.1))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.1.5(@types/node@22.15.16)
+      vite: 8.1.5(@types/node@26.1.1)
 
   acorn-jsx@5.3.2(acorn@8.17.0):
     dependencies:
@@ -3717,7 +3720,7 @@ snapshots:
 
   chrome-launcher@1.2.1:
     dependencies:
-      '@types/node': 22.15.16
+      '@types/node': 26.1.1
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 2.0.2
@@ -3975,11 +3978,11 @@ snapshots:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  graphiql@5.2.4(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)):
+  graphiql@5.2.4(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)):
     dependencies:
-      '@graphiql/plugin-doc-explorer': 0.4.2(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
-      '@graphiql/plugin-history': 0.4.2(@graphiql/react@0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/node@22.15.16)(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
-      '@graphiql/react': 0.37.7(@types/node@22.15.16)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/plugin-doc-explorer': 0.4.2(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/plugin-history': 0.4.2(@graphiql/react@0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)))(@types/node@26.1.1)(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+      '@graphiql/react': 0.37.7(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(graphql@17.0.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
       graphql: 17.0.2
       react: 19.2.8
       react-compiler-runtime: 19.1.0-rc.1(react@19.2.8)
@@ -4227,9 +4230,9 @@ snapshots:
 
   meriyah@6.1.4: {}
 
-  meros@1.3.2(@types/node@22.15.16):
+  meros@1.3.2(@types/node@26.1.1):
     optionalDependencies:
-      '@types/node': 22.15.16
+      '@types/node': 26.1.1
 
   minimatch@10.2.5:
     dependencies:
@@ -4509,7 +4512,7 @@ snapshots:
 
   speedline-core@1.4.3:
     dependencies:
-      '@types/node': 22.15.16
+      '@types/node': 26.1.1
       image-ssim: 0.2.0
       jpeg-js: 0.4.4
 
@@ -4608,7 +4611,7 @@ snapshots:
 
   uc.micro@2.1.0: {}
 
-  undici-types@6.21.0: {}
+  undici-types@8.3.0: {}
 
   update-browserslist-db@1.2.3(browserslist@4.28.7):
     dependencies:
@@ -4639,18 +4642,18 @@ snapshots:
     dependencies:
       react: 19.2.8
 
-  vite-plugin-svgr@5.2.0(@typescript/typescript6@6.0.2)(rollup@4.40.2)(vite@8.1.5(@types/node@22.15.16)):
+  vite-plugin-svgr@5.2.0(@typescript/typescript6@6.0.2)(rollup@4.40.2)(vite@8.1.5(@types/node@26.1.1)):
     dependencies:
       '@rollup/pluginutils': 5.4.0(rollup@4.40.2)
       '@svgr/core': 8.1.0(@typescript/typescript6@6.0.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(@typescript/typescript6@6.0.2))
-      vite: 8.1.5(@types/node@22.15.16)
+      vite: 8.1.5(@types/node@26.1.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@8.1.5(@types/node@22.15.16):
+  vite@8.1.5(@types/node@26.1.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
@@ -4658,7 +4661,7 @@ snapshots:
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 22.15.16
+      '@types/node': 26.1.1
       fsevents: 2.3.3
 
   vscode-languageserver-types@3.18.0: {}

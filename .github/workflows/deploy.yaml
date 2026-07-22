@@ -52,7 +52,7 @@ jobs:
 
       - name: Rsync to server
         run: |
-          rsync --delete -azr ./apps/web/dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/portfolio
+          rsync --delete --exclude=health.json -azr ./apps/web/dist/ jonas@${{ env.DOMAIN }}:/usr/local/bin/portfolio
 
       - name: Restart Nginx
         run: |

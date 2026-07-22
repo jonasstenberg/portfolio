@@ -1,0 +1,68 @@
+name: Health
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_run:
+    workflows: [Deploy]
+    types: [completed]
+  workflow_dispatch:
+
+env:
+  DOMAIN: stenberg.io
+
+jobs:
+  health:
+    name: Test the live site
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright browser
+        run: pnpm --filter qa exec playwright install --with-deps chromium
+
+      - name: Run Playwright checks against the live site
+        run: pnpm --filter qa exec playwright test
+        continue-on-error: true
+
+      - name: Run Lighthouse against the live site
+        run: >-
+          pnpm --filter qa exec lighthouse https://${{ env.DOMAIN }}
+          --output=json --output-path=results/lighthouse.json
+          --only-categories=performance,accessibility,best-practices,seo
+          --chrome-flags='--headless=new --no-sandbox' --quiet
+        continue-on-error: true
+
+      - name: Compose health.json
+        run: node scripts/compose-health.mjs
+        working-directory: apps/qa
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.APP_SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ env.DOMAIN }} >> ~/.ssh/known_hosts
+
+      - name: Publish health.json
+        run: |
+          rsync -az ./apps/qa/results/health.json jonas@${{ env.DOMAIN }}:/usr/local/bin/portfolio/health.json
+
+      - name: Fail the run if checks failed
+        run: node -e "const h = require('./apps/qa/results/health.json'); process.exit(h.summary.failed ? 1 : 0)"

@@ -49,6 +49,13 @@ export default tseslint.config(
     rules: {
       'react-refresh/only-export-components': 'warn',
     },
+  },
+  {
+    // MPA entry points render in place and are never hot-refresh targets.
+    files: ['src/**/main.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
     settings: {
       react: {
         version: 'detect',

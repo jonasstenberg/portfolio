@@ -13,6 +13,7 @@ const HELP = [
   ['n / N', 'next / previous match'],
   [':intro :about :skills :contact', 'jump to section'],
   [':graphql', 'open the CV API playground'],
+  [':checkhealth', 'the site tests itself'],
   ['Esc', 'clear'],
 ] as const;
 
@@ -171,6 +172,8 @@ export const VimMode = () => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: smoothScroll() });
     } else if (cmd === 'graphql' || cmd === 'api') {
       window.open('/graphiql/', '_blank', 'noopener');
+    } else if (cmd === 'checkhealth' || cmd === 'health') {
+      window.open('/health/', '_blank', 'noopener');
     } else if (cmd === 'help' || cmd === 'h') {
       setHelpOpen(true);
     } else if (cmd === 'q' || cmd === 'quit') {

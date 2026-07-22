@@ -293,6 +293,10 @@ export const App = () => {
               <a href='/graphiql/' target='_blank' rel='noopener noreferrer'>
                 GraphQL API
               </a>
+              , and the site{' '}
+              <a href='/health/' target='_blank' rel='noopener noreferrer'>
+                tests itself
+              </a>
               .
             </p>
             <ul className='contact'>

@@ -17,6 +17,7 @@ export default defineConfig(() => {
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
           graphiql: fileURLToPath(new URL('./graphiql/index.html', import.meta.url)),
+          health: fileURLToPath(new URL('./health/index.html', import.meta.url)),
         },
       },
     },
