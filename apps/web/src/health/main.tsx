@@ -80,12 +80,12 @@ const HealthPage = () => {
       <h1>Health</h1>
       <p className='health-sub'>
         This site tests itself. Playwright, axe-core and Lighthouse run against the live site daily
-        and after every deploy — these are the latest results.
+        and after every deploy. These are the latest results.
       </p>
 
       {missing && (
         <p className='health-empty'>
-          No health data published yet — the first run hasn't completed. Check the{' '}
+          No health data published yet. The first run hasn't completed, check the{' '}
           <a href={`${REPO}/actions/workflows/health.yaml`}>workflow runs</a>.
         </p>
       )}
@@ -135,7 +135,7 @@ const HealthPage = () => {
                 </span>
                 <span className='check-title'>
                   {check.title}
-                  <span className='visually-hidden'> — {check.status}</span>
+                  <span className='visually-hidden'>: {check.status}</span>
                 </span>
                 <span className='check-duration'>{(check.durationMs / 1000).toFixed(1)}s</span>
               </li>
@@ -145,10 +145,9 @@ const HealthPage = () => {
       )}
 
       <p className='health-footer'>
-        Powered by <a href={`${REPO}/blob/main/.github/workflows/health.yaml`}>a GitHub workflow</a>{' '}
-        running <a href={`${REPO}/tree/main/apps/qa`}>the qa suite</a> — Playwright end-to-end
-        checks (including the vim mode and the Konami code), an axe-core accessibility scan, and
-        Lighthouse. Results land here as a static <a href='/health.json'>health.json</a>.
+        See <a href={`${REPO}/blob/main/.github/workflows/health.yaml`}>the workflow</a>,{' '}
+        <a href={`${REPO}/tree/main/apps/qa`}>the test suite</a>, or the raw{' '}
+        <a href='/health.json'>health.json</a>.
       </p>
     </div>
   );
