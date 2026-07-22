@@ -286,6 +286,13 @@ export const App = () => {
           <section aria-labelledby='contact-heading'>
             <h2 id='contact-heading'>Contact</h2>
             <h3>Say Hello!</h3>
+            <p className='graphql-hint'>
+              Engineer? This CV is also a{' '}
+              <a href='/graphiql/' target='_blank' rel='noopener noreferrer'>
+                GraphQL API
+              </a>
+              .
+            </p>
             <ul className='contact'>
               <li>
                 <a href='mailto:portfolio@stenberg.io' aria-label='Email'>

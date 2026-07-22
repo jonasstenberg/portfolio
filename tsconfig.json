@@ -20,5 +20,6 @@
     "types": [
       "vite-plugin-svgr/client"
     ]
-  }
+  },
+  "exclude": ["node_modules", "dist", "api"]
 }

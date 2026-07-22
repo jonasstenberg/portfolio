@@ -60,4 +60,21 @@ server {
   location / {
     try_files $uri $uri/ =404;
   }
+
+  # CV GraphQL API (see api/ in the repo). JSON only — the GraphiQL playground
+  # is a page of the Vite app, served statically at /graphiql/.
+  # add_header directives here replace the inherited ones from includes/headers,
+  # so the relevant ones are restated with an API-appropriate CSP.
+  location = /graphql {
+    proxy_pass http://127.0.0.1:4000/graphql;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    add_header Strict-Transport-Security "max-age=15768000; preload" always;
+    add_header X-Content-Type-Options nosniff;
+    add_header Content-Security-Policy "default-src 'none'; frame-ancestors 'none';";
+    add_header 'Referrer-Policy' 'strict-origin';
+  }
 }

@@ -1,0 +1,19 @@
+[Unit]
+Description=CV GraphQL API (stenberg.io/graphql)
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/cv-api
+Environment=HOST=127.0.0.1
+Environment=PORT=4000
+Restart=on-failure
+RestartSec=2
+
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

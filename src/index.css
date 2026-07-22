@@ -393,6 +393,10 @@ main {
   text-align: left;
 }
 
+.graphql-hint {
+  margin-bottom: 2.5rem;
+}
+
 .contact {
   display: flex;
   justify-content: space-between;
