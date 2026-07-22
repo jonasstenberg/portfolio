@@ -24,7 +24,7 @@ jobs:
 
       - name: Install pnpm
         id: pnpm-install
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Setup pnpm cache
         uses: actions/cache@v5
