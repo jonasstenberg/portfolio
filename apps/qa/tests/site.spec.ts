@@ -1,5 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+
+// The vim keydown listener attaches on React mount, which can lag the load
+// event on slow runners — wait for the status chip before typing.
+const gotoVimReady = async (page: Page) => {
+  await page.goto('/');
+  await expect(page.locator('.vim-status')).toBeVisible();
+};
 
 test('home page renders', async ({ page }) => {
   await page.goto('/');
@@ -39,13 +46,13 @@ test('GraphiQL playground is served', async ({ page }) => {
 });
 
 test('vim mode: ? opens the help panel', async ({ page }) => {
-  await page.goto('/');
+  await gotoVimReady(page);
   await page.keyboard.press('?');
   await expect(page.locator('.vim-help')).toBeVisible();
 });
 
 test('vim mode: /vue finds the skill', async ({ page }) => {
-  await page.goto('/');
+  await gotoVimReady(page);
   await page.keyboard.press('/');
   await page.keyboard.type('vue');
   await page.keyboard.press('Enter');
@@ -53,7 +60,7 @@ test('vim mode: /vue finds the skill', async ({ page }) => {
 });
 
 test('vim mode: :contact jumps to the contact section', async ({ page }) => {
-  await page.goto('/');
+  await gotoVimReady(page);
   await page.keyboard.press(':');
   await page.keyboard.type('contact');
   await page.keyboard.press('Enter');
@@ -61,7 +68,7 @@ test('vim mode: :contact jumps to the contact section', async ({ page }) => {
 });
 
 test('konami code grants 30 extra lives', async ({ page }) => {
-  await page.goto('/');
+  await gotoVimReady(page);
   const sequence = [
     'ArrowUp',
     'ArrowUp',

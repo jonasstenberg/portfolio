@@ -42,6 +42,7 @@ jobs:
       - name: Run Lighthouse against the live site
         run: >-
           pnpm --filter qa exec lighthouse https://${{ env.DOMAIN }}
+          --preset=desktop
           --output=json --output-path=results/lighthouse.json
           --only-categories=performance,accessibility,best-practices,seo
           --chrome-flags='--headless=new --no-sandbox' --quiet
