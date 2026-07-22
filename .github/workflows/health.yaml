@@ -49,7 +49,7 @@ jobs:
         continue-on-error: true
 
       - name: Compose health.json
-        run: node scripts/compose-health.mjs
+        run: node scripts/compose-health.js
         working-directory: apps/qa
         env:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
