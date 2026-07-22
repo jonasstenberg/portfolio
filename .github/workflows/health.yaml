@@ -23,6 +23,9 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v5
         with:
@@ -49,7 +52,7 @@ jobs:
         continue-on-error: true
 
       - name: Compose health.json
-        run: node scripts/compose-health.js
+        run: bun scripts/compose-health.ts
         working-directory: apps/qa
         env:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -67,4 +70,4 @@ jobs:
 
       - name: Fail the run if checks failed
         run: |
-          node -e "const h = require('./apps/qa/results/health.json'); process.exit(h.summary.failed ? 1 : 0)"
+          bun -e "const h = await Bun.file('./apps/qa/results/health.json').json(); process.exit(h.summary.failed ? 1 : 0)"
