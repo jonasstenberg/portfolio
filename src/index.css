@@ -474,6 +474,35 @@ main {
   }
 }
 
+@keyframes barrel-roll {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.barrel-roll {
+  animation: barrel-roll 1.5s ease-in-out;
+}
+
+.konami-toast {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  z-index: 100;
+  padding: 0.375rem 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+  color: #e8e8e8;
+  background-color: rgba(28, 36, 43, 0.88);
+  border-radius: 0.375rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
 .contact {
   display: flex;
   justify-content: space-between;

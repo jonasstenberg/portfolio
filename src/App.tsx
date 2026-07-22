@@ -6,6 +6,7 @@ import { ReactComponent as Github } from './assets/github.svg';
 import { ReactComponent as LinkedIn } from './assets/linkedin.svg';
 
 import { useIntersectionObserver } from './hooks/observer';
+import { EasterEggs } from './components/EasterEggs';
 import { VimMode } from './components/VimMode';
 
 export const App = () => {
@@ -328,6 +329,7 @@ export const App = () => {
         <div className='zigzag-inverse'></div>
       </footer>
       <VimMode />
+      <EasterEggs />
     </>
   );
 };

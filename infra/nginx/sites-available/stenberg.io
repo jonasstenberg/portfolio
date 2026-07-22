@@ -57,6 +57,8 @@ server {
   root /usr/local/bin/stenberg.io;
   index index.html;
 
+  error_page 404 /404.html;
+
   location / {
     try_files $uri $uri/ =404;
   }
