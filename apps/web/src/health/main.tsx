@@ -79,9 +79,8 @@ const HealthPage = () => {
       </a>
       <h1>Health</h1>
       <p className='health-sub'>
-        This site tests itself. I build website QA tooling for a living, so the portfolio should
-        walk the walk: Playwright, axe-core and Lighthouse run against the live site daily and after
-        every deploy, and this page shows the latest results.
+        This site tests itself. Playwright, axe-core and Lighthouse run against the live site daily
+        and after every deploy — these are the latest results.
       </p>
 
       {missing && (
