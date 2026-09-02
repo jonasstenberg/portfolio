@@ -61,10 +61,19 @@ export const me = {
 
 export const experience: Experience[] = [
   {
+    company: 'Lime Technologies',
+    role: 'Cloud Engineer',
+    location: 'Lund, Sweden',
+    period: { start: 2026, end: null },
+    summary: null,
+    highlights: [],
+    tech: [],
+  },
+  {
     company: 'Squidler',
     role: 'Developer',
     location: 'Malmö, Sweden',
-    period: { start: 2025, end: null },
+    period: { start: 2025, end: 2026 },
     summary:
       'Squidler is an AI agent platform built around named specialists that people "hire" and ' +
       'keep as ongoing contacts across Slack, Telegram, email and the web: a QA tester, a ' +

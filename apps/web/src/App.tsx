@@ -94,7 +94,12 @@ export const App = () => {
             <h3>Work and education</h3>
             <ul className='experiences'>
               <li>
-                <p>2025 - ∞</p>
+                <p>2026 - ∞</p>
+                <p>Cloud Engineer @ Lime Technologies</p>
+                <p>Lund, Sweden</p>
+              </li>
+              <li>
+                <p>2025 - 2026</p>
                 <p>Developer @ Squidler</p>
                 <p>Malmö, Sweden</p>
                 <p>

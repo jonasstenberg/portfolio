@@ -28,7 +28,7 @@ test('CV GraphQL API answers the canonical query', async ({ request }) => {
   expect(res.ok()).toBeTruthy();
   const body = await res.json();
   expect(body.data.experience.length).toBeGreaterThan(5);
-  expect(body.data.experience[0].company).toBe('Squidler');
+  expect(body.data.experience[0].company).toBe('Lime Technologies');
 });
 
 test('GraphQL schema supports filter arguments', async ({ request }) => {
